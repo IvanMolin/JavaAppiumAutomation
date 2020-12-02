@@ -28,14 +28,11 @@ public class MainClassTest
     public void testGetClassString ()
     {
        String greet = Main.getClassString();
-       String greet2 = "Hello";
-       if (greet.toLowerCase().contains(greet2.toLowerCase()))
-       {
-           System.out.println("Hello is found in given string");
-       } else
 
-       {
-           Assert.fail("Hello is not found in the string");
+
+         Assert.assertTrue("Hello|hello is not found in the string",greet.contains("Hello") | greet.contains("hello"));
+
+
        }
     }
-}
+
