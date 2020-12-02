@@ -17,12 +17,9 @@ public class MainClassTest
     public void testGetClassNumber ()
     {
         int b = Main.getClassnumber();
-        if (b > 45)
+        if (b < 45)
         {
-            System.out.println("true");
-        }
-        else {
-            System.out.println("False");
+           Assert.fail("b < 45");
         }
     }
 
