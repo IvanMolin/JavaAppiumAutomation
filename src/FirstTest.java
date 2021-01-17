@@ -40,7 +40,7 @@ public class FirstTest {
 
 
 
-    @Test
+    /*@Test
     public void testCompareSearchTitle()
     {
         waitForElementAndClick(
@@ -55,9 +55,9 @@ public class FirstTest {
         );
 
         assertElementHasText(search_element, "Search…", "Error! Unexpected text");
-    }
+    }*/
 
-    /*@Test
+    @Test
     public void testCancelSearch()
     {
         waitForElementAndClick(
@@ -73,13 +73,13 @@ public class FirstTest {
         );
         waitForElementPresent(
                 By.xpath("//*[@resource-id='org.wikipedia:id/page_list_item_container']//*[@text='Island of Indonesia']"),
-                "Cannot find 'Object-oriented programming language' topic search by 'Java'",
+                "Cannot find 'Island of Indonesia' topic search by 'Java'",
                 15
 
         );
         waitForElementPresent(
                 By.xpath("//*[@resource-id='org.wikipedia:id/page_list_item_container']//*[@text='Programming language']"),
-                "Cannot find 'Object-oriented programming language' topic search by 'Java'",
+                "Cannot find 'Programming language' topic search by 'Java'",
                 15
 
         );
@@ -95,15 +95,24 @@ public class FirstTest {
                 5
         );
 
-
         waitForElementNotPresent(
                 By.xpath("//*[@resource-id='org.wikipedia:id/page_list_item_container']//*[@text='Island of Indonesia']"),
-                "X is still present on the page",
+                "'Island of Indonesia' is still present on the page",
+                5
+        );
+        waitForElementNotPresent(
+                By.xpath("//*[@resource-id='org.wikipedia:id/page_list_item_container']//*[@text='Programming language']"),
+                "'Programming language' is still present on the page",
+                5
+        );
+        waitForElementNotPresent(
+                By.xpath("//*[@resource-id='org.wikipedia:id/page_list_item_container']//*[@text='Object-oriented programming language']"),
+                "'Object-oriented programming language' is still present on the page",
                 5
         );
 
 
-    }*/
+    }
 
     private WebElement waitForElementPresent(By by, String error_message, long timeoutInSeconds)
     {
