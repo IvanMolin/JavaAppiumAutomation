@@ -1,13 +1,13 @@
 package Lib.ui;
 
 import io.appium.java_client.AppiumDriver;
-import org.openqa.selenium.By;
+
 
 public class MyListsPageObject extends MainPageObject {
 
     private static final String
-            FOLDER_BY_NAME_TPL = "//*[@text='{FOLDER_NAME}']",
-            ARTICLE_BY_TITLE_TPL = "//*[@text='{TITLE}']";
+            FOLDER_BY_NAME_TPL = "xpath://*[@text='{FOLDER_NAME}']",
+            ARTICLE_BY_TITLE_TPL = "xpath://*[@text='{TITLE}']";
 
     private static String getFolderXpathByName(String name_of_folder)
     {
@@ -28,7 +28,7 @@ public class MyListsPageObject extends MainPageObject {
     {
         String folder_name_xpath = getFolderXpathByName(name_of_folder);
         this.waitForElementAndClick(
-                By.xpath(folder_name_xpath),
+                folder_name_xpath,
                 "Cannot find '"+ name_of_folder +"' on a lists",
                 5
         );
@@ -40,7 +40,7 @@ public class MyListsPageObject extends MainPageObject {
     {
         String article_xpath = getSavedArticleXpathByTitle(article_title);
         this.waitForElementPresent(
-                By.xpath(article_xpath),
+                article_xpath,
                 "Cannot find saved article '" + article_title + "'",
                 15
         );
@@ -49,7 +49,7 @@ public class MyListsPageObject extends MainPageObject {
     {
         String article_xpath = getSavedArticleXpathByTitle(article_title);
         this.waitForElementNotPresent(
-                By.xpath(article_xpath),
+                article_xpath,
                 "Saved article '" + article_title + "' was not delete",
                 15
         );
@@ -59,7 +59,7 @@ public class MyListsPageObject extends MainPageObject {
     {
         String article_xpath = getSavedArticleXpathByTitle(article_title);
         this.swipeElementToLeft(
-                By.xpath(article_xpath),
+                article_xpath,
                 "Cannot find and delete saved article '" + article_title + "'"
         );
 
